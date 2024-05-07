@@ -3,3 +3,10 @@ node_modules/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+credentials.ts
+
+.prettierignore
+.prettierrc
+
+tests/proba.spec.ts
+snippets/
