@@ -1,14 +1,43 @@
 {
-  "name": "generator-umow-tests",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {},
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@playwright/test": "^1.43.1",
-    "@types/node": "^20.12.10"
-  }
+    "name": "generator-umow-tests",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "scripts": {
+        "test": "npx playwright test",
+        "test:headed": "npx playwright test --headed",
+        "test:ui": "npx playwright test --ui",
+        "report": "npx playwright show-report",
+        "prettier": "npx prettier --write .",
+        "lint": "eslint . --max-warnings 0 --report-unused-disable-directives",
+        "lint:fix": "npm run lint -- --fix",
+        "prepare": "husky install"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.23.2",
+        "@babel/eslint-parser": "^7.22.15",
+        "@types/node": "^20.12.10",
+        "@typescript-eslint/eslint-plugin": "^7.0.0",
+        "@typescript-eslint/parser": "^7.0.0",
+        "eslint": "latest",
+        "eslint-plugin-playwright": "latest",
+        "husky": "^9.0.0",
+        "lint-staged": "^15.0.2",
+        "prettier": "3.2.5",
+        "typescript": "^5.2.2"
+    },
+    "lint-staged": {
+        "**/*": "prettier --write --ignore-unknown"
+    },
+    "dependencies": {
+        "@playwright/test": "^1.43.1",
+        "dayjs": "^1.11.10",
+        "dotenv": "^16.4.5",
+        "fs": "^0.0.1-security",
+        "npm": "^10.4.0",
+        "node-regon": "^1.1.0"
+    }
 }

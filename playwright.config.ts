@@ -1,4 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
+import dotenv from "dotenv";
+import path from "path";
 
 /**
  * Read environment variables from file.
@@ -9,6 +11,19 @@ import { defineConfig, devices } from '@playwright/test';
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
+
+enum ENVIRONMENTS {
+  stage = "Stage",
+  prod = "Prod",
+}
+// Choosing the default environment
+const defaultEnvironment = ENVIRONMENTS.stage;
+
+const environment = process.env.ENV ?? defaultEnvironment;
+dotenv.config({
+  path: path.resolve(__dirname, `./environments/.env.${environment}`),
+});
+
 export default defineConfig({
   testDir: './tests',
   /* Run tests in files in parallel */
@@ -37,15 +52,15 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
+    // {
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'] },
+    // },
 
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
+    // {
+    //   name: 'webkit',
+    //   use: { ...devices['Desktop Safari'] },
+    // },
 
     /* Test against mobile viewports. */
     // {
