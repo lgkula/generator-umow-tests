@@ -14,10 +14,11 @@ import path from "path";
 
 enum ENVIRONMENTS {
   stage = "Stage",
+  stageDev = "StageDev",
   prod = "Prod",
 }
 // Choosing the default environment
-const defaultEnvironment = ENVIRONMENTS.stage;
+const defaultEnvironment = ENVIRONMENTS.stageDev;
 
 const environment = process.env.ENV ?? defaultEnvironment;
 dotenv.config({
@@ -40,9 +41,18 @@ export default defineConfig({
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://127.0.0.1:3000',
+    baseURL: process.env.BASE_URL,
+
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
+    video: 'off',
     trace: 'on-first-retry',
+  },
+  // Maksymalny czas testów 3min
+  timeout: 180_000,
+  expect: {
+    // Maximum time expect() should wait for the condition to be met.
+    timeout: 20_000,
   },
 
   /* Configure projects for major browsers */

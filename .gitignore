@@ -10,3 +10,5 @@ credentials.ts
 
 tests/proba.spec.ts
 snippets/
+
+/environments/.env.StageDev

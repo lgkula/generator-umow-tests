@@ -33,11 +33,11 @@
         "**/*": "prettier --write --ignore-unknown"
     },
     "dependencies": {
-        "@playwright/test": "^1.43.1",
+        "@playwright/test": "^1.44.0",
         "dayjs": "^1.11.10",
         "dotenv": "^16.4.5",
         "fs": "^0.0.1-security",
-        "npm": "^10.4.0",
-        "node-regon": "^1.1.0"
+        "node-regon": "^1.1.0",
+        "npm": "^10.4.0"
     }
 }
