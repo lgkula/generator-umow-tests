@@ -7,7 +7,7 @@ import { trainingBeneficiarySteps } from './steps/trainingBeneficiarySteps';
 import { agreementDetailsSteps } from './steps/agreementDetailsSteps';
 import { createAgreementNumberMiddlePart } from '../test-data/agreementNumber';
 
-test('Generate 5.11 Program Agreement', async ({ page }) => {
+test.only('Generate 5.11 Program Agreement', async ({ page }) => {
     const selectedProgram = '5.11';
     const selectedYear = '2023';
     const selectedTrainingDetailsId = 2;
