@@ -188,6 +188,10 @@ export const trainingBeneficiarySteps = () => {
             'Check if any soft assertion throwed exception',
         ).toHaveLength(0);
 
+        // TO REMOVE
+        await page.waitForTimeout(1_000);
+        await page.screenshot();
+
         await trainingParticipantDataPage.saveAndNextButtonLocator.click();
 
         await expect(
