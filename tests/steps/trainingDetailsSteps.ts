@@ -1,7 +1,11 @@
 /* eslint-disable playwright/prefer-web-first-assertions */
 import { Page, expect } from '@playwright/test';
 import { TrainingDataPage } from '../../pages/trainigData.page';
-import { trainingDetails } from '../../test-data/burTrainingsDetails';
+import {
+    checkTrainingDetailsId,
+    trainingDetails,
+} from '../../test-data/burTrainingsDetails';
+import { TrainingCompanyDataPage } from '../../pages/trainigCompanyData.page';
 
 export const trainingDetailsSteps = () => {
     const reandAndCheckTrainingDataStep = async (
@@ -16,15 +20,9 @@ export const trainingDetailsSteps = () => {
             trainingDetailsId: number;
         },
     ) => {
-        if (
-            trainingDetailsId < 0 ||
-            trainingDetailsId >= trainingDetails.length
-        ) {
-            throw new Error(
-                `Training details with id ${trainingDetailsId} not found in trainingDetails array`,
-            );
-        }
+        checkTrainingDetailsId(trainingDetailsId);
         const trainingDataPage = new TrainingDataPage(page);
+        const trainingCompanyDataPage = new TrainingCompanyDataPage(page);
 
         await expect(
             trainingDataPage.trainingDataHeraderLocator,
@@ -129,6 +127,10 @@ export const trainingDetailsSteps = () => {
         ).toBeEnabled();
 
         await trainingDataPage.SaveAndForwardButtonLocator.click();
+        await expect(
+            trainingCompanyDataPage.pageHeraderLocator,
+            'Checking whether the "Training company details" page has been displayed',
+        ).toHaveText(trainingCompanyDataPage.trainingDataHerader);
     };
 
     return {

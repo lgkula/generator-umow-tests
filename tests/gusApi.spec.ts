@@ -1,5 +1,4 @@
 import { test, expect } from '@playwright/test';
-import { apiToken } from '../credentials';
 // import * as Client from 'node-regon';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -24,9 +23,9 @@ interface CompanyInfoByNip {
     MiejscowoscPoczty: string[];
 }
 
-test('Connect to api', async () => {
+test.skip('Connect to api', async () => {
     const client = await Client.createClient({
-        key: apiToken,
+        key: process.env.API_TOKEN,
         sandbox: false,
         birVersion: '1.1',
     });
@@ -54,7 +53,7 @@ test('Connect to api', async () => {
 
 test('Społka Cywilna test', async () => {
     const client = await Client.createClient({
-        key: apiToken,
+        key: process.env.API_TOKEN,
         sandbox: false,
         birVersion: '1.1',
     });

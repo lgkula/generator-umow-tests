@@ -49,7 +49,7 @@ export default defineConfig({
     trace: 'on-first-retry',
   },
   // Maksymalny czas testów 3min
-  timeout: 180_000,
+  timeout: 40_000,
   expect: {
     // Maximum time expect() should wait for the condition to be met.
     timeout: 20_000,
@@ -59,7 +59,10 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: { ...devices['Desktop Chrome'], 
+      viewport: { width: 1580, height: 1300 },
+
+      },
     },
 
     // {

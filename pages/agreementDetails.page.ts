@@ -32,7 +32,7 @@ export class AgreementDetailsPage {
             'funding-available-input-53',
         );
         this.saveAndNextButtonLocator = page.getByTestId(
-            'button-save-trainer-form',
+            'button-save-contract-form',
         );
 
         this.pageTitle = 'Generator umów';
