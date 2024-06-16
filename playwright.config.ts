@@ -18,7 +18,7 @@ enum ENVIRONMENTS {
   prod = "Prod",
 }
 // Choosing the default environment
-const defaultEnvironment = ENVIRONMENTS.stageDev;
+const defaultEnvironment = ENVIRONMENTS.stage;
 
 const environment = process.env.ENV ?? defaultEnvironment;
 dotenv.config({
