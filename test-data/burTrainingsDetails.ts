@@ -103,7 +103,7 @@ export const trainingDetails: TrainingDetails[] = [
         burNumber: '2024/05/17/162797/2153707',
         netAmount: '4950.00',
         grossAmount: '4950.00',
-        trainingTime: ['24.06.2024', '27.08.2024'],
+        trainingTime: ['08.07.2024', '27.08.2024'],
         servceEndDate: '16.09.2024',
         copmapnyName: 'FUNDACJA EDU ACTIVE',
         companyEmail: 'biuro@edu-active.pl',
