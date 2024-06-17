@@ -43,7 +43,7 @@ jobs:
                   path: ~/.cache/ms-playwright
                   key: playwright-browsers-${{ env.PLAYWRIGHT_VERSION }}
 
-            - name: Check if cache was hit
+            - name: Set cache-hit variable
               run: echo "cache-hit=${{ steps.cache-playwright-browsers.outputs.cache-hit }}" >> $GITHUB_ENV
 
             - name: Print cache-hit value
