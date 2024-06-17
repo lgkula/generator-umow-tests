@@ -43,11 +43,13 @@ jobs:
                   path: ~/.cache/ms-playwright
                   key: playwright-browsers-${{ env.PLAYWRIGHT_VERSION }}
 
+            - name: Check if cache was hit
+              run: echo "cache-hit=${{ steps.cache-playwright-browsers.outputs.cache-hit }}" >> $GITHUB_ENV
+
             - name: Setup Playwright
-              if: steps.cache-playwright-browsers.outputs.cache-hit != 'true'
-              run: |
-                  echo steps.cache-playwright-browsers.outputs.cache-hit
-                  npx playwright install --with-deps
+              if: env.cache-hit != 'true'
+              # if: steps.cache-playwright-browsers.outputs.cache-hit != 'true'
+              run: npx playwright install --with-deps
 
             - name: Run Playwright tests on stage
               env:
